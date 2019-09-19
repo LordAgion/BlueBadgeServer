@@ -16,6 +16,7 @@ router.post('/', validateSession, (req, res) => {
     spiecesType:  req.body.spiecesType,
     planetType:  req.body.planetType,
     preferedPreferance:  req.body.preferedPreferance,
+    majorTrait: req.body.majorTrait,
     isMachine: req.body.isMachine,
     specialTrait:  req.body.specialTrait,
     doubleJointed:  req.body.doubleJointed,
@@ -91,6 +92,7 @@ router.post('/', validateSession, (req, res) => {
                 spiecesType:  req.body.spiecesType,
                 planetType:  req.body.planetType,
                 preferedPreferance:  req.body.preferedPreferance,
+                majorTrait: req.body.majorTrait,
                 isMachine: req.body.isMachine,
                 specialTrait:  req.body.specialTrait,
                 doubleJointed:  req.body.doubleJointed,
@@ -172,8 +174,11 @@ router.post('/', validateSession, (req, res) => {
 
 router.get('/:id', (req, res) => {
     Speices.findAll(
-        
+
+        {where:
             {userId: req.params.id }
+        }
+            
         )
         .then(spieces => res.status(200).json(spieces))
         .catch(err => res.status(500).json({
@@ -192,6 +197,18 @@ router.get('/:id', (req, res) => {
     Speices.destroy({
         where:
             {id: req.params.id }
+        })
+        .then(spieces => res.status(200).json(spieces))
+        .catch(err => res.status(500).json({
+            error: err
+        }))
+    })
+
+    
+  router.delete('/all/:id', (req, res) => {
+    Speices.destroy({
+        where:
+            {userId: req.params.id }
         })
         .then(spieces => res.status(200).json(spieces))
         .catch(err => res.status(500).json({

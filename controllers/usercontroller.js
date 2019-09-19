@@ -51,4 +51,18 @@ router.post('/signin', (req, res) =>{
         }
     },  err => res.status(501).send({ error: 'failed to process'}))
  })
+
+
+ router.delete('/:id', (req, res) =>{
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(user => res.status(200).json(user))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+ })
+
  module.exports = router;

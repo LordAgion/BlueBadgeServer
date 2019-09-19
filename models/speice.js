@@ -20,13 +20,19 @@ module.exports = (sequelize, DataTypes)=> {
             type: DataTypes.STRING,
             allowNull: true
         },
+
+        majorTrait: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+
         isMachine: {
             type: DataTypes.BOOLEAN,
             allowNull: true
         },
         specialTrait: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         doubleJointed: {
             type: DataTypes.BOOLEAN,
