@@ -14,4 +14,4 @@ app.use('/auth', user);
 app.use('/speices', speices);
 
 
-app.listen(3001, () => console.log(`app is listening port ${process.env.PORT}`))
+app.listen(process.env.PORT, () => console.log(`app is listening port ${process.env.PORT}`))
