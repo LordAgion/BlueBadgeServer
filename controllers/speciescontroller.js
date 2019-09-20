@@ -158,17 +158,10 @@ router.post('/', validateSession, (req, res) => {
                 NerveStapled: req.body.NerveStapled,
                 Delicious:  req.body.Delicious
                     }) 
-   .then(
-    
-    createSuccess = () => {
-        
-        res.json({
-            message: 'speices created'
-           
-        });
-    },
-    createError = (error) => {res.status(500).send({ error: 'failed to authenticate 1' })
-})
+                    .then(spieces => res.status(200).json(spieces))
+                    .catch(err => res.status(500).json({
+                        error: err
+                    }))
 })
 
 
