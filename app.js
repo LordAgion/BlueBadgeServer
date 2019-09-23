@@ -12,6 +12,6 @@ app.use(require('./middleware/headers'));
 
 app.use('/auth', user);
 app.use('/speices', speices);
-
+app.use('/speciesPlus', speciesPlus);
 
 app.listen(process.env.PORT, () => console.log(`app is listening port ${process.env.PORT}`))
