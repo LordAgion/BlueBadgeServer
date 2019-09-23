@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const SpeicePlus = require('../db').import('../models/speiceplus');
+const SpeicePlus = require('../db').import('../models/speicePlus');
 const validateSession = require('../middleware/validate-session')
 
 
