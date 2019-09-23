@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
            error: err
        }))
 })
-router.post('/', validateSession, (req, res) => {
+router.post('/', (req, res) => {
    const speicesFromRequest = {
     spiecesName: req.body.spiecesName,
     spiecesType:  req.body.spiecesType,
@@ -159,10 +159,10 @@ router.post('/', validateSession, (req, res) => {
                 Delicious:  req.body.Delicious
                     }) 
                     .then(spieces => res.status(200).json(spieces))
-                    
                     .catch(err => res.status(500).json({
                         error: err
                     }))
+
 })
 
 
@@ -171,19 +171,6 @@ router.get('/:id', (req, res) => {
 
         {where:
             {userId: req.params.id }
-        }
-            
-        )
-        .then(spieces => res.status(200).json(spieces))
-        .catch(err => res.status(500).json({
-            error: err
-        }))
- })
- router.get('/one/:id', (req, res) => {
-    Speices.findAll(
-
-        {where:
-            {id: req.params.id }
         }
             
         )
