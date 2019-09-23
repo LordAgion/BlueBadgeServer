@@ -181,7 +181,7 @@ router.get('/:id', (req, res) => {
         
  })
 
- router.get('/:id', (req, res) => {
+ router.get('/one/:id', (req, res) => {
     Speices.findAll(
 
         {where:
