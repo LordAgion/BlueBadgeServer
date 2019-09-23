@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const speices = require('./controllers/speciescontroller');
 const user = require('./controllers/usercontroller');
+const speciesPlus = require('./controllers/speciespluscontroller');
 const sequelize = require('./db');
 
 sequelize.sync();
